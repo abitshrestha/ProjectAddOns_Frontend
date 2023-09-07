@@ -71,7 +71,7 @@ const Body = ({projects}) => {
   };
   const getContents = async () => {
     try {
-      const response = await axios.get("https://projectaddons-backend.onrender.com:4747/getProject");
+      const response = await axios.get("https://projectaddons-backend.onrender.com/getProject");
       // console.log(response.data);
       const dataFetch = response.data;
       setData(dataFetch);
