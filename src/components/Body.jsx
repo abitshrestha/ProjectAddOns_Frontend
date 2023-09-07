@@ -34,7 +34,7 @@ const Body = ({projects}) => {
   
   const deleteProject=async (itemId)=>{
     try{
-      const response=await axios.delete(`http://localhost:4747/deleteproject/${itemId}`);
+      const response=await axios.delete(`https://projectaddons-backend.onrender.com/deleteproject/${itemId}`);
       console.log(response);
       if(response.status===204){
         toast.success('Project deleted successfully');
@@ -61,7 +61,7 @@ const Body = ({projects}) => {
     const newStatus = parseInt(event.target.value, 10);
     console.log("fsd");
     try {
-      await axios.put(`http://localhost:4747/updateStatus/${item_id}`, {
+      await axios.put(`https://projectaddons-backend.onrender.com/updateStatus/${item_id}`, {
         status: newStatus,
       });
       getContents();
@@ -71,7 +71,7 @@ const Body = ({projects}) => {
   };
   const getContents = async () => {
     try {
-      const response = await axios.get("http://localhost:4747/getProject");
+      const response = await axios.get("https://projectaddons-backend.onrender.com:4747/getProject");
       // console.log(response.data);
       const dataFetch = response.data;
       setData(dataFetch);
