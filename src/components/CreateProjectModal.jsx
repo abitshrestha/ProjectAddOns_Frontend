@@ -21,7 +21,7 @@ const CreateProjectModal=({isOpen,closeModal})=>{
     const handleSubmit=async(e)=>{
         e.preventDefault();
         try{
-            const response=await axios.post(`http://localhost:4747/postProject`,{
+            const response=await axios.post(`https://projectaddons-backend.onrender.com/postProject`,{
                 projectname,duedate
             });
             if(response.status===201){
