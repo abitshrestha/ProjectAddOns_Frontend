@@ -20,7 +20,7 @@ const Edit = ({ toOpen, closeModal,updateData }) => {
     e.preventDefault();
     try {
       const response = await axios.put(
-        `http://localhost:4747/editproject/${projectId}`,
+        `https://projectaddons-backend.onrender.com/editproject/${projectId}`,
         {
           editprojectname,
           editdate,
@@ -46,7 +46,7 @@ const Edit = ({ toOpen, closeModal,updateData }) => {
   const getProjectData = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:4747/getprojectdata/${projectId}`,
+        `https://projectaddons-backend.onrender.com/getprojectdata/${projectId}`,
         {
           projectId,
         }
