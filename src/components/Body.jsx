@@ -15,6 +15,7 @@ const Body = ({projects}) => {
   console.log(projects);
   const [editPopup,seteditPopup]=useState({ isOpen: false, projectId: null });
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   // const [status,setStatus] = useState(0);
   const openPopup=(projectId)=>{
     seteditPopup({isOpen:true,projectId:projectId});
@@ -70,6 +71,7 @@ const Body = ({projects}) => {
     }
   };
   const getContents = async () => {
+    setIsLoading(true);
     try {
       const response = await axios.get("https://projectaddons-backend.onrender.com/getProject");
       // console.log(response.data);
@@ -78,6 +80,8 @@ const Body = ({projects}) => {
       // console.log(data);
     } catch (e) {
       console.error(e);
+    }finally{
+      setIsLoading(false);
     }
   };
   useEffect(() => {
@@ -86,6 +90,7 @@ const Body = ({projects}) => {
   return (
     <div className="body">
       <ProjectBoxes projects={data} />
+      {isLoading?<div><p>Loading Data.<p className="sometime">!!this may take some time...</p></p></div>:""}
       <main className="table">
         <section className="table__header">
           <h1>Projects</h1>
