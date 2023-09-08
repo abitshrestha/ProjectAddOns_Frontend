@@ -90,7 +90,6 @@ const Body = ({projects}) => {
   return (
     <div className="body">
       <ProjectBoxes projects={data} />
-      {isLoading?<div><p>Loading Data.<p className="sometime">!!this may take some time...</p></p></div>:""}
       <main className="table">
         <section className="table__header">
           <h1>Projects</h1>
@@ -106,7 +105,9 @@ const Body = ({projects}) => {
               </tr>
             </thead>
             <tbody>
+              {isLoading?<tr><p>Loading Data.<p className="sometime">!!this may take some time...</p></p></tr>:""}
               {data.map((item) => (
+          
                 <tr key={item._id}>
                   <td>{item.projectname}</td>
                   <td>
